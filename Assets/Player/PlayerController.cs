@@ -8,16 +8,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerController player_;
     [SerializeField] Transform camera_;　//カメラ
     [SerializeField] float JumpForce = 350f;    //ジャンプの力
-    private bool jumpcount = false;
+    public groundcheck grondcheck_;
     private Rigidbody2D rbody2D;
     //private Collision2D collision2D;
+    private bool isGround = false;  //地面判定  
 
     // Start is called before the first frame update
     void Start()
     {
         //MoveSpeed = 0.0f;
         rbody2D = GetComponent<Rigidbody2D>();
-
+        
     }
 
     // Update is called once per frame
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour
         Move();
         //OnCollisionFloor(collision2D);
         CameraUpdate();
+        isGround = grondcheck_.IsGround();
+       // Debug.Log("%d",isGround);
+
     }
 
     void Move()
@@ -48,21 +52,21 @@ public class PlayerController : MonoBehaviour
         {
             player_.transform.position = new Vector3(transform.position.x , transform.position.y - MoveSpeed);
         }
-        if (Input.GetKeyDown(KeyCode.Space) && this.jumpcount==false)
+        if (Input.GetKeyDown(KeyCode.Space) && this.isGround == true)
         
         {
             this.rbody2D.AddForce(transform.up * JumpForce);    //ジャンプの処理
-           // jumpcount=true;    //ジャンプ回数制限のためのカウント
+            isGround = true;    //ジャンプ回数制限のためのカウント
         }
     }
 
-    private void OnCollisionFloor(Collision2D other)
-    {
-        //if (other.tag=="Floor")
-        //{
-        //    jumpcount = false;
-        //}
-    }
+    //private void OnCollisionFloor(Collider2D other)
+    //{
+    //    if (other.tag == "Floor")
+    //    {
+    //        isGround = false;
+    //    }
+    //}
 
     private void CameraUpdate()
     {
