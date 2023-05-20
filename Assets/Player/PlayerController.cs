@@ -44,14 +44,14 @@ public class PlayerController : MonoBehaviour
         {
             player_.transform.position = new Vector3(transform.position.x + MoveSpeed, transform.position.y);
         }
-        if (Input.GetKey(KeyCode.W))    //上に移動（いらない）
-        {
-            player_.transform.position = new Vector3(transform.position.x , transform.position.y + MoveSpeed);
-        }
-        if (Input.GetKey(KeyCode.S))    //下に移動（いらない）
-        {
-            player_.transform.position = new Vector3(transform.position.x , transform.position.y - MoveSpeed);
-        }
+        //if (Input.GetKey(KeyCode.W))    //上に移動（いらない）
+        //{
+        //    player_.transform.position = new Vector3(transform.position.x , transform.position.y + MoveSpeed);
+        //}
+        //if (Input.GetKey(KeyCode.S))    //下に移動（いらない）
+        //{
+        //    player_.transform.position = new Vector3(transform.position.x , transform.position.y - MoveSpeed);
+        //}
         if (Input.GetKeyDown(KeyCode.Space) && this.isGround == true)
         
         {
