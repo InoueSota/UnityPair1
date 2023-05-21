@@ -8,7 +8,12 @@ public class groundcheck : MonoBehaviour
     private bool isGround = false;
     private bool isGroundEnter, isGroundStay, isGroundExit;
     public TileBreak Tilebreak_;
+    public bero bero_;
 
+    private void Start()
+    {
+        bero_ = GetComponent<bero>();
+    }
     //接地判定を返すメソッド
     //物理判定の更新毎に呼ぶ必要がある
     public bool IsGround()
@@ -16,6 +21,7 @@ public class groundcheck : MonoBehaviour
         if (isGroundEnter || isGroundStay)
         {
             isGround = true;
+        
         }
         else if (isGroundExit)
         {
@@ -33,6 +39,8 @@ public class groundcheck : MonoBehaviour
         if (collision.tag == groundTag)
         {
             isGroundEnter = true;
+          
+
         }
     }
 

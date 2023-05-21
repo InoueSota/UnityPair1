@@ -9,13 +9,12 @@ public class bero : MonoBehaviour
 {
     public Transform player_;
     [SerializeField] float hookSpeed;    //フックのスピード
-    private bool isHooked = false;  //引っかかっているかどうか
+    public bool isHooked = false;  //引っかかっているかどうか
     private bool isHookedcoolTime = false;
  
     private Vector2 hookTarget; // ターゲットの目標値
 
     private  new Rigidbody2D rigidbody2D;
-    private GameObject Bero;
     PlayerController player_muki;
     public Tilemap tilemap;
     // Start is called before the first frame update
@@ -65,6 +64,7 @@ public class bero : MonoBehaviour
         if (collision.tag == "Floor")
         {
             isHookedcoolTime = false;
+          
         }
     }
 
@@ -84,5 +84,8 @@ public class bero : MonoBehaviour
     //    }
     //}
 
-
+    void SetisHooked(bool b)
+    {
+        isHooked = b;
+    }
 }
