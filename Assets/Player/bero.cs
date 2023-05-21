@@ -10,9 +10,12 @@ public class bero : MonoBehaviour
     public Transform player_;
     [SerializeField] float hookSpeed;    //フックのスピード
     private bool isHooked = false;  //引っかかっているかどうか
+    private bool isHookedcoolTime = false;
+ 
     private Vector2 hookTarget; // ターゲットの目標値
 
     private  new Rigidbody2D rigidbody2D;
+    private GameObject Bero;
     PlayerController player_muki;
     public Tilemap tilemap;
     // Start is called before the first frame update
@@ -27,14 +30,16 @@ public class bero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K)==true&&isHooked==false)  // マウスの左ボタンがクリックされたら
+        if (Input.GetKeyDown(KeyCode.K) == true && isHooked == false && isHookedcoolTime == false)  // マウスの左ボタンがクリックされたら
         {    
              Vector2 targetPosition = new(player_.transform.position.x+(10),player_.transform.position.y+(10));
             HookPlayer(targetPosition);
+            isHooked = true;
+            isHookedcoolTime = true;
         }
 
 
-        if (isHooked==true)
+        if (isHooked==true && isHookedcoolTime == true)
         {
             MovePlayer();
         }
@@ -43,7 +48,7 @@ public class bero : MonoBehaviour
     void HookPlayer(Vector2 targetpossition)
     {
         hookTarget= targetpossition;    
-        isHooked = true;
+       
     }
 
     void MovePlayer()
@@ -59,25 +64,25 @@ public class bero : MonoBehaviour
     {
         if (collision.tag == "Floor")
         {
-            isHooked = false;
+            isHookedcoolTime = false;
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Floor")
-        {
-            isHooked = false;
-        }
-    }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Floor")
+    //    {
+    //        isHookedcoolTime = false;
+    //    }
+    //}
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Floor")
-        {
-            isHooked = false;
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Floor")
+    //    {
+    //        isHookedcoolTime = false;
+    //    }
+    //}
 
 
 }
