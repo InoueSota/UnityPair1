@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rbody2D;
     //private Collision2D collision2D;
     private bool isGround = false;  //地面判定  
+     int muki = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +40,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))    //左に移動する処理    
         {
             player_.transform.position = new Vector3(transform.position.x - MoveSpeed, transform.position.y);
+            muki = -1;
         }
         if (Input.GetKey(KeyCode.D))    //右に移動する処理
         {
             player_.transform.position = new Vector3(transform.position.x + MoveSpeed, transform.position.y);
+            muki = 1;
         }
         //if (Input.GetKey(KeyCode.W))    //上に移動（いらない）
         //{
@@ -71,5 +74,9 @@ public class PlayerController : MonoBehaviour
     private void CameraUpdate()
     {
         camera_.transform.position = new Vector3(player_.transform.position.x,player_.transform.position.y,-10f);
+    }
+   public int Getmuki()
+    {
+        return muki;
     }
 }

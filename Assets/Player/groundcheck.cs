@@ -7,6 +7,7 @@ public class groundcheck : MonoBehaviour
     private string groundTag = "Floor";
     private bool isGround = false;
     private bool isGroundEnter, isGroundStay, isGroundExit;
+    public TileBreak Tilebreak_;
 
     //接地判定を返すメソッド
     //物理判定の更新毎に呼ぶ必要がある
