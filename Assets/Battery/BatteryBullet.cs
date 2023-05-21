@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BatteryBullet : MonoBehaviour
 {
-    public GameObject bulletPrefab;
     [SerializeField] float moveSpeed = 1.0f;
     [SerializeField] Vector3 moveVec = new Vector3(-1, 0, 0);
 
@@ -24,4 +23,5 @@ public class BatteryBullet : MonoBehaviour
     {
         moveVec = _vec.normalized;
     }
+
 }

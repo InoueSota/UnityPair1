@@ -5,6 +5,7 @@ using UnityEngine;
 public class Battery : MonoBehaviour
 {
     public GameObject batteryPrefab;
+    public GameObject bulletPrefab;
 
     [System.Serializable]
     struct ShotData
@@ -13,7 +14,7 @@ public class Battery : MonoBehaviour
         public BatteryBullet bullet;
     }
 
-    [SerializeField] ShotData shotData = new ShotData { frame = 60, bullet = null };
+    [SerializeField] ShotData shotData = new ShotData { frame = 300, bullet = null };
 
     int shotFrame = 0;
 
@@ -21,6 +22,7 @@ public class Battery : MonoBehaviour
     void Start()
     {
         GameObject batteryinstance = Instantiate(batteryPrefab, new Vector3(3,0,0),Quaternion.identity);
+        GameObject bulletinstance = Instantiate(bulletPrefab, new Vector3(3, 0, 0), Quaternion.identity);
     }
 
     // ショット処理（これをUpdateなどで呼ぶ）
@@ -29,8 +31,9 @@ public class Battery : MonoBehaviour
         ++shotFrame;
         if (shotFrame > shotData.frame)
         {
-            BatteryBullet bullet = Instantiate(shotData.bullet, transform.position, Quaternion.identity);
-            bullet.SetMoveVec(Quaternion.AngleAxis(0, new Vector3(0, 0, 1)) * new Vector3(-1, 0, 0));
+            BatteryBullet bullet = (BatteryBullet)Instantiate(shotData.bullet, batteryPrefab.transform.position, Quaternion.identity);
+
+            bullet.SetMoveVec(new Vector3(-1,0,0));
 
             shotFrame = 0;
         }
