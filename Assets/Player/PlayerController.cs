@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
     private void CameraUpdate()
     {
-        camera_.transform.position = new Vector3(player_.transform.position.x,player_.transform.position.y,-10f);
+        camera_.transform.position = new Vector3(player_.transform.position.x,player_.transform.position.y+3f,-10f);
     }
    public int Getmuki()
     {

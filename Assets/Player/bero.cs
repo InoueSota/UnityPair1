@@ -10,8 +10,8 @@ public class bero : MonoBehaviour
     public Transform player_;
     [SerializeField] float hookSpeed;    //フックのスピード
     public bool isHooked = false;  //引っかかっているかどうか
-    private bool isHookedcoolTime = false;
-        private Vector2 hookTarget; // ターゲットの目標値
+    public bool isHookedcoolTime = false;
+        public Vector2 hookTarget; // ターゲットの目標値
     public Vector2 hookPower= new Vector2 (8,8);
     private  new Rigidbody2D rigidbody2D;
     PlayerController player_muki;
@@ -21,11 +21,11 @@ public class bero : MonoBehaviour
     public GameObject BeroPrefab;
     public float CoolTime=1f;
     private GameObject beroN_;
-    private bool beronobita = false;
+   // private bool beronobita = false;
     // Start is called before the first frame update
     void Start()
     {
-        hookSpeed = 30f;
+       
         rigidbody2D=this.GetComponent<Rigidbody2D>();
         CoolTime = 1.0f;
        
@@ -34,28 +34,41 @@ public class bero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K) == true && isHooked == false && isHookedcoolTime == false)  // K_codeがクリックされたら
+        if (Input.GetKeyDown(KeyCode.K) == true && isHooked == false && isHookedcoolTime == false&&CoolTime==0)  // K_codeがクリックされたら
         {    
-             Vector2 targetPosition = new(player_.transform.position.x+(hookPower.x*muki),player_.transform.position.y+(hookPower.y));
-             beroN_ = Instantiate(BeroPrefab,player_.transform);
+           //  Vector2 targetPosition = new(player_.transform.position.x+(hookPower.x*muki),player_.transform.position.y+(hookPower.y));
+             beroN_ = Instantiate(BeroPrefab);
+             beroN_.transform.position = player_.transform.position;
             var script = beroN_.GetComponent<BeroNobiru>();  // プレハブにアタッチされているスクリプトの参照
-            HookPlayer(targetPosition);
             script.muki_=muki;  // 値を設定
-                isHooked = true;
-                isHookedcoolTime = true;     
-          
+            if (script.Hit_Bullet == true)  //べロが弾に当たったら
+            {
+                
+               
+            }
+            isHooked = true;
+            isHookedcoolTime = true;
             CoolTime = 1.0f;
         }
+
         if (beroN_ != null)
         {
             var scriptbero = beroN_.GetComponent<BeroNobiru>();  // プレハブにアタッチされているスクリプトの参照
-            if (scriptbero!=null&&scriptbero.turnPoint == true)
+                HookPlayer(scriptbero.TargetPos);   //当たった場所に引っ張られる
+            
+
+            if (scriptbero != null && scriptbero.turnPoint == true) //ベロ消す処理
             {
-                beronobita = true;
-                Destroy(scriptbero);
-                Destroy(beroN_);
+               
+                //Destroy(scriptbero);
+                //Destroy(beroN_);
+            }
+            if (scriptbero.Hit_Bullet==true)
+            {
+                MovePlayer();   //引っ張られる動き
             }
         }
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             muki = -1;
@@ -65,10 +78,7 @@ public class bero : MonoBehaviour
             muki = 1;
         }
 
-        if (isHooked==true && isHookedcoolTime == true&&beronobita==true)
-        {           
-            MovePlayer();
-        }
+       
         CoolTime -= Time.deltaTime;
         CoolTime = Mathf.Clamp(CoolTime, 0, 1);
 
@@ -88,37 +98,37 @@ public class bero : MonoBehaviour
         {
             isHooked= false;
             Destroy(beroN_);
-            beronobita = false;
+           
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Floor"&& CoolTime==0)
+        if (collision.tag == "Floor"|| CoolTime==0)
         {
             isHookedcoolTime = false;
             isHooked = false;
-            beronobita = false;
+          
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Floor" && CoolTime == 0)
+        if (collision.tag == "Floor" || CoolTime == 0)
         {
             isHookedcoolTime = false;
             isHooked = false;
-            beronobita = false;
+         
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Floor" && CoolTime == 0)
+        if (collision.tag == "Floor" || CoolTime == 0)
         {
             isHookedcoolTime = false;
             isHooked = false;
-            beronobita = false;
+           
         }
     }
 

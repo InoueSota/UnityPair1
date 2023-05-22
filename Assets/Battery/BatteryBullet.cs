@@ -17,4 +17,28 @@ public class BatteryBullet : MonoBehaviour
 
         Destroy(this.gameObject, 2.0f);
     }
+
+
+
+    private void OnDrawGizmos() //プレハブの当たり判定描画
+    {
+        Collider2D collider = GetComponent<Collider2D>();
+
+        if (collider != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.matrix = transform.localToWorldMatrix;
+
+            if (collider is BoxCollider2D boxCollider)
+            {
+                Gizmos.DrawWireCube(boxCollider.offset, boxCollider.size);
+            }
+            else if (collider is CircleCollider2D circleCollider)
+            {
+                Gizmos.DrawWireSphere(circleCollider.offset, circleCollider.radius);
+            }
+
+            // 他の2DのColliderに対しても同様に処理を追加してください
+        }
+    }
 }

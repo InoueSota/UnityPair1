@@ -6,24 +6,32 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BeroNobiru : MonoBehaviour
 {
-    private float heightPos;
-    public bool turnPoint;
-    public float BeroMoveSpeed;
+    private GameObject player;
+    private PlayerController playerControllerscript;
+    private float heightPos;    //êLÇ—ÇÈí∑Ç≥ 
+    public bool turnPoint;  //ÉxÉçÇ™ñﬂÇ¡ÇΩÇ©Ç«Ç§Ç©
+    public float BeroMoveSpeed;     
     public int muki_;
-   
-    
+    public bool Hit_Bullet;     //ÉxÉçÇ™íeÇ…ìñÇΩÇ¡ÇΩÇ©Ç«Ç§Ç©
+    public Vector2 TargetPos;   //ìñÇΩÇ¡ÇΩéûÇÃÇ€ÇµÇµÇÂÇÒ
+  
+
     void Start()
     {
         heightPos = 0;
         turnPoint = false;
-       
+    
     }
 
     void Update()
     {
-      
+        shinsyuku();
 
-        if (transform.localScale.y > 5.0f)
+    }
+
+    private void shinsyuku()
+    {
+        if (transform.localScale.y > 10.0f)
         {
             turnPoint = true;
         }
@@ -31,15 +39,18 @@ public class BeroNobiru : MonoBehaviour
         {
             turnPoint = false;
         }
+        transform.position = new Vector3(this.transform.position.x, this.transform.position.y/*+(heightPos*0.01f)*/, this.transform.position.z);
 
         if (!turnPoint)
         {
             transform.localScale = new Vector3(1, heightPos, 1);
             if (muki_ == -1)
             {
-             transform.rotation = Quaternion.Euler(0,0,30f);
-            }else if (muki_ == 1) {
-                transform.rotation = Quaternion.Euler(0, 0, -30f);
+                transform.rotation = Quaternion.Euler(0, 0, 45f);
+            }
+            else if (muki_ == 1)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, -45f);
 
             }
             heightPos += BeroMoveSpeed * Time.deltaTime;
@@ -54,7 +65,37 @@ public class BeroNobiru : MonoBehaviour
 
             }
         }
-        transform.position = new Vector3(this.transform.position.x,heightPos * 0.25f, this.transform.position.z);
-
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bullet")
+        {
+            Hit_Bullet = true;
+            TargetPos= collision.transform.position;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Collider2D collider = GetComponent<Collider2D>();
+
+        if (collider != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.matrix = transform.localToWorldMatrix;
+
+            if (collider is BoxCollider2D boxCollider)
+            {
+                Gizmos.DrawWireCube(boxCollider.offset, boxCollider.size);
+            }
+            else if (collider is CircleCollider2D circleCollider)
+            {
+                Gizmos.DrawWireSphere(circleCollider.offset, circleCollider.radius);
+            }
+          
+            // ëºÇÃ2DÇÃColliderÇ…ëŒÇµÇƒÇ‡ìØólÇ…èàóùÇí«â¡ÇµÇƒÇ≠ÇæÇ≥Ç¢
+        }
+    }
+
 }
