@@ -2693,6 +2693,7 @@ MonoBehaviour:
   isHooked: 0
   hookPower: {x: 8, y: 8}
   tilemap: {fileID: 584536712}
+  muki: 1
   BeroPrefab: {fileID: 5369248334748958132, guid: fa45661dde1b24b4b9ec3cca4d59282d, type: 3}
   CoolTime: 1
 --- !u!58 &1741248748

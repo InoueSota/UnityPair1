@@ -17,16 +17,18 @@ public class bero : MonoBehaviour
     PlayerController player_muki;
     private GameObject Player_;
     public Tilemap tilemap;
-    private int muki = 1;
+    public int muki = 1;
     public GameObject BeroPrefab;
     public float CoolTime=1f;
+    private GameObject beroN_;
+    private bool beronobita = false;
     // Start is called before the first frame update
-   void Start()
+    void Start()
     {
         hookSpeed = 30f;
         rigidbody2D=this.GetComponent<Rigidbody2D>();
         CoolTime = 1.0f;
-        GameObject beroN_ = Instantiate(BeroPrefab);
+       
     }
 
     // Update is called once per frame
@@ -35,10 +37,24 @@ public class bero : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K) == true && isHooked == false && isHookedcoolTime == false)  // K_codeがクリックされたら
         {    
              Vector2 targetPosition = new(player_.transform.position.x+(hookPower.x*muki),player_.transform.position.y+(hookPower.y));
+             beroN_ = Instantiate(BeroPrefab,player_.transform);
+            var script = beroN_.GetComponent<BeroNobiru>();  // プレハブにアタッチされているスクリプトの参照
             HookPlayer(targetPosition);
-            isHooked = true;
-            isHookedcoolTime = true;
+            script.muki_=muki;  // 値を設定
+                isHooked = true;
+                isHookedcoolTime = true;     
+          
             CoolTime = 1.0f;
+        }
+        if (beroN_ != null)
+        {
+            var scriptbero = beroN_.GetComponent<BeroNobiru>();  // プレハブにアタッチされているスクリプトの参照
+            if (scriptbero!=null&&scriptbero.turnPoint == true)
+            {
+                beronobita = true;
+                Destroy(scriptbero);
+                Destroy(beroN_);
+            }
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -49,12 +65,14 @@ public class bero : MonoBehaviour
             muki = 1;
         }
 
-        if (isHooked==true && isHookedcoolTime == true)
-        {
+        if (isHooked==true && isHookedcoolTime == true&&beronobita==true)
+        {           
             MovePlayer();
         }
         CoolTime -= Time.deltaTime;
         CoolTime = Mathf.Clamp(CoolTime, 0, 1);
+
+       
     }
 
     void HookPlayer(Vector2 targetpossition)
@@ -68,7 +86,9 @@ public class bero : MonoBehaviour
         player_.transform.position = Vector2.MoveTowards(player_.transform.position, hookTarget, hookSpeed*Time.deltaTime);
         if((Vector2.Distance(hookTarget, player_.transform.position) < 0.1f)) //近くなったらファルス
         {
-            isHooked= false;    
+            isHooked= false;
+            Destroy(beroN_);
+            beronobita = false;
         }
     }
 
@@ -78,6 +98,7 @@ public class bero : MonoBehaviour
         {
             isHookedcoolTime = false;
             isHooked = false;
+            beronobita = false;
         }
     }
 
@@ -87,6 +108,7 @@ public class bero : MonoBehaviour
         {
             isHookedcoolTime = false;
             isHooked = false;
+            beronobita = false;
         }
     }
 
@@ -96,6 +118,7 @@ public class bero : MonoBehaviour
         {
             isHookedcoolTime = false;
             isHooked = false;
+            beronobita = false;
         }
     }
 
