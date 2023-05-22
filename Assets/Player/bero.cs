@@ -11,37 +11,50 @@ public class bero : MonoBehaviour
     [SerializeField] float hookSpeed;    //フックのスピード
     public bool isHooked = false;  //引っかかっているかどうか
     private bool isHookedcoolTime = false;
- 
-    private Vector2 hookTarget; // ターゲットの目標値
-
+        private Vector2 hookTarget; // ターゲットの目標値
+    public Vector2 hookPower= new Vector2 (8,8);
     private  new Rigidbody2D rigidbody2D;
     PlayerController player_muki;
+    private GameObject Player_;
     public Tilemap tilemap;
+    private int muki = 1;
+
+    public float CoolTime=1f;
     // Start is called before the first frame update
-    void Start()
+   void Start()
     {
         hookSpeed = 30f;
-        rigidbody2D=this.GetComponent<Rigidbody2D>();   
-        player_muki=GetComponent<PlayerController>();
-       
+        rigidbody2D=this.GetComponent<Rigidbody2D>();
+        CoolTime = 1.0f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K) == true && isHooked == false && isHookedcoolTime == false)  // マウスの左ボタンがクリックされたら
+        if (Input.GetKeyDown(KeyCode.K) == true && isHooked == false && isHookedcoolTime == false)  // K_codeがクリックされたら
         {    
-             Vector2 targetPosition = new(player_.transform.position.x+(10),player_.transform.position.y+(10));
+             Vector2 targetPosition = new(player_.transform.position.x+(hookPower.x*muki),player_.transform.position.y+(hookPower.y));
             HookPlayer(targetPosition);
             isHooked = true;
             isHookedcoolTime = true;
+            CoolTime = 1.0f;
         }
-
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            muki = -1;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            muki = 1;
+        }
 
         if (isHooked==true && isHookedcoolTime == true)
         {
             MovePlayer();
         }
+        CoolTime -= Time.deltaTime;
+        CoolTime = Mathf.Clamp(CoolTime, 0, 1);
     }
 
     void HookPlayer(Vector2 targetpossition)
@@ -61,28 +74,30 @@ public class bero : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Floor")
+        if (collision.tag == "Floor"&& CoolTime==0)
         {
             isHookedcoolTime = false;
-          
+            isHooked = false;
         }
     }
 
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if (collision.tag == "Floor")
-    //    {
-    //        isHookedcoolTime = false;
-    //    }
-    //}
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Floor" && CoolTime == 0)
+        {
+            isHookedcoolTime = false;
+            isHooked = false;
+        }
+    }
 
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.tag == "Floor")
-    //    {
-    //        isHookedcoolTime = false;
-    //    }
-    //}
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Floor" && CoolTime == 0)
+        {
+            isHookedcoolTime = false;
+            isHooked = false;
+        }
+    }
 
     void SetisHooked(bool b)
     {

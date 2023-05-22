@@ -22,14 +22,14 @@ public class TileBreak : MonoBehaviour
         if (Input.GetKey(KeyCode.B))
         {
             
-        TileBreak_();
+         TileBreak_();
         }
     }
 
     private void TileBreak_()
     {
-        if (player_ != null) return;
-        var tilepos=blockTilemap.WorldToCell(player_.transform.position);
+        if (blockTilemap != null) return;
+        Vector3Int tilepos =blockTilemap.WorldToCell(player_.transform.position);
        blockTilemap.SetTile(tilepos, null);
     }
 }

@@ -7,12 +7,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float MoveSpeed;//プレイヤーの動く速さ
     [SerializeField] PlayerController player_;
     [SerializeField] Transform camera_;　//カメラ
-    [SerializeField] float JumpForce = 350f;    //ジャンプの力
+    [SerializeField] float JumpForce=300f;    //ジャンプの力
     public groundcheck grondcheck_;
     private Rigidbody2D rbody2D;
     //private Collision2D collision2D;
     private bool isGround = false;  //地面判定  
-     int muki = -1;
+    public int muki = -1;
 
     // Start is called before the first frame update
     void Start()
