@@ -18,7 +18,7 @@ public class bero : MonoBehaviour
     private GameObject Player_;
     public Tilemap tilemap;
     private int muki = 1;
-
+    public GameObject BeroPrefab;
     public float CoolTime=1f;
     // Start is called before the first frame update
    void Start()
@@ -26,7 +26,7 @@ public class bero : MonoBehaviour
         hookSpeed = 30f;
         rigidbody2D=this.GetComponent<Rigidbody2D>();
         CoolTime = 1.0f;
-        
+        GameObject beroN_ = Instantiate(BeroPrefab);
     }
 
     // Update is called once per frame
