@@ -9,7 +9,7 @@ public class Battery : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject batteryinstance;
 
-    int shotFrame = 0;
+    float shotSecond = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +20,12 @@ public class Battery : MonoBehaviour
     // ショット処理（これをUpdateなどで呼ぶ）
     void Shot()
     {
-        ++shotFrame;
-        if (shotFrame > 300)
+        shotSecond += Time.deltaTime;
+        if (shotSecond > 3)
         {
             GameObject bulllet = Instantiate(bulletPrefab, batteryinstance.transform.position, Quaternion.identity) as GameObject;
 
-            shotFrame = 0;
+            shotSecond = 0;
         }
     }
 
