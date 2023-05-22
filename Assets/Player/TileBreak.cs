@@ -28,12 +28,7 @@ public class TileBreak : MonoBehaviour
 
     private void TileBreak_()
     {
-        if (blockTilemap != null) return;
-        Vector3Int tilepos =blockTilemap.WorldToCell(player_.transform.position);
-       blockTilemap.SetTile(tilepos, null);
-        hit_ = Physics2D.Raycast(player_.transform.position, new Vector3(0, -1, 0), 1, LayerMask.GetMask("Floor"));
-        if (hit_.collider == null) return;
-        var tilePos = blockTilemap.WorldToCell(hit_.point);
-        blockTilemap.SetTile(tilePos, null);
+        if (blockTilemap == null) { return; }
+        blockTilemap.SetTile(new Vector3Int((int)player_.transform.position.x, (int)player_.transform.position.y - 1, (int)player_.transform.position.z), null);
     }
 }

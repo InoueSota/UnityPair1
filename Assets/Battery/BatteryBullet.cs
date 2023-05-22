@@ -14,5 +14,7 @@ public class BatteryBullet : MonoBehaviour
     void Update()
     {
         this.GetComponent<Rigidbody2D>().velocity = new Vector2(-5.0f, 0.0f);
+
+        Destroy(this.gameObject, 2.0f);
     }
 }
