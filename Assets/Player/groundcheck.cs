@@ -7,7 +7,6 @@ public class groundcheck : MonoBehaviour
     private string groundTag = "Floor";
     private bool isGround = false;
     private bool isGroundEnter, isGroundStay, isGroundExit;
-    public TileBreak Tilebreak_;
     public bero bero_;
 
     private void Start()

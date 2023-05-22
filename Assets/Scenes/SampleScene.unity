@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 442242472}
   - component: {fileID: 442242471}
   - component: {fileID: 442242473}
+  - component: {fileID: 442242474}
   m_Layer: 0
   m_Name: kaeru
   m_TagString: Player
@@ -321,6 +322,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &442242474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442242466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a910f75ffd6b3b4ab3309fd5ca6bb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockTilemap: {fileID: 584536712}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +433,7 @@ GameObject:
   - component: {fileID: 584536713}
   - component: {fileID: 584536715}
   - component: {fileID: 584536714}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Floor
   m_Icon: {fileID: 0}
