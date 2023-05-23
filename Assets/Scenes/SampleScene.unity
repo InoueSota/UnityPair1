@@ -398,7 +398,6 @@ MonoBehaviour:
   hipdropPrefab: {fileID: 3155732225658182397, guid: 81d29c2568a6d3a4ebc584653823b6f9, type: 3}
   batteryDeadPrefab: {fileID: 8913033473882332355, guid: 1476a089b4b7f834ea2629af48cec6a0, type: 3}
   camera_: {fileID: 519420032}
-  JumpForce: 300
   dropspeed_: 0.05
   grondcheck_: {fileID: 899811961}
   rbody2D: {fileID: 0}
@@ -78069,7 +78068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_: {fileID: 442242469}
   hookSpeed: 25
-  hookPower: 4.5
+  hookPower: 50
   isHooked: 0
   isHookedcoolTime: 0
   hookTarget: {x: 0, y: 0}

@@ -80,7 +80,7 @@ public class bero : MonoBehaviour
                  force = Quaternion.Euler(0, 0, angle) * Vector2.right * hookPower;
 
                 }
-                rigidbody2D.AddForce(new Vector2(force.x*0.5f,force.y), ForceMode2D.Force);
+                rigidbody2D.AddForce(new Vector2(force.x*0.5f,force.y)*Time.deltaTime, ForceMode2D.Impulse);
             }
             if (isHooked == true && isHookedcoolTime == false)
             {             
@@ -155,7 +155,7 @@ public class bero : MonoBehaviour
         }
         else
         {
-             player_.transform.position = Vector2.MoveTowards(player_.transform.position, hookTarget, hookSpeed * Time.deltaTime);
+             player_.transform.position = Vector2.MoveTowards(player_.transform.position, hookTarget, (hookSpeed * Time.deltaTime));
 
         }
 
