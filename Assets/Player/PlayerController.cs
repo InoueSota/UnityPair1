@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject hipdropPrefab;
     [SerializeField] GameObject batteryDeadPrefab;
     [SerializeField] Transform camera_;　//カメラ
-    [SerializeField] float JumpForce=300f;    //ジャンプの力
+   // [SerializeField] float JumpForce=300f;    //ジャンプの力
     [SerializeField] float dropspeed_;
     public groundcheck grondcheck_;
     public Rigidbody2D rbody2D;
@@ -42,12 +42,12 @@ public class PlayerController : MonoBehaviour
     {
         player_.transform.Rotate(0, 0, 0);
 
-        if (Input.GetKey(KeyCode.A))    //左に移動する処理    
+        if (Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.LeftArrow)  )  //左に移動する処理    
         {
             player_.transform.position = new Vector3(transform.position.x - MoveSpeed, transform.position.y);
             muki = -1;
         }
-        if (Input.GetKey(KeyCode.D))    //右に移動する処理
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))    //右に移動する処理
         {
             player_.transform.position = new Vector3(transform.position.x + MoveSpeed, transform.position.y);
             muki = 1;
@@ -82,11 +82,11 @@ public class PlayerController : MonoBehaviour
             player_.transform.position = new Vector3(transform.position.x, transform.position.y - dropspeed_);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGround && !isHipDropActive)
-        {
-            this.rbody2D.AddForce(transform.up * JumpForce);    //ジャンプの処理
-            isGround = false;    //ジャンプ回数制限のためのカウント
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && isGround && !isHipDropActive)
+        //{
+        //    this.rbody2D.AddForce(transform.up * JumpForce);    //ジャンプの処理
+        //    isGround = false;    //ジャンプ回数制限のためのカウント
+        //}
     }
 
     //private void OnCollisionFloor(Collider2D other)
