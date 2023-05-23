@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Bullet
+  - Battery
   layers:
   - Default
   - TransparentFX

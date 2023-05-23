@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerController player_;
     [SerializeField] Transform camera_;　//カメラ
     [SerializeField] float JumpForce=300f;    //ジャンプの力
+    [SerializeField] float dropspeed_;
     public groundcheck grondcheck_;
-    private Rigidbody2D rbody2D;
+    public Rigidbody2D rbody2D;
     //private Collision2D collision2D;
     private bool isGround = false;  //地面判定  
+    public bool isHipDropActive = false;
     public int muki = -1;
 
     // Start is called before the first frame update
@@ -55,11 +57,28 @@ public class PlayerController : MonoBehaviour
         //{
         //    player_.transform.position = new Vector3(transform.position.x , transform.position.y - MoveSpeed);
         //}
-        if (Input.GetKeyDown(KeyCode.Space) && this.isGround == true)
-        
+
+        if (Input.GetKey(KeyCode.H) && !grondcheck_.IsGround() && !isHipDropActive)
+        {
+            isHipDropActive = true;
+        }
+
+        if (isHipDropActive)
+        {
+            if (grondcheck_.IsGround())
+            {
+                player_.rbody2D.velocity = Vector3.zero;
+                isGround = true;
+                isHipDropActive = false;
+            }
+
+            player_.transform.position = new Vector3(transform.position.x, transform.position.y - dropspeed_);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGround && !isHipDropActive)
         {
             this.rbody2D.AddForce(transform.up * JumpForce);    //ジャンプの処理
-            isGround = true;    //ジャンプ回数制限のためのカウント
+            isGround = false;    //ジャンプ回数制限のためのカウント
         }
     }
 
@@ -79,4 +98,5 @@ public class PlayerController : MonoBehaviour
     {
         return muki;
     }
+
 }
