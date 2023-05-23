@@ -5,11 +5,13 @@ using UnityEngine;
 public class BatteryBullet : MonoBehaviour
 {
     float speed_;
+    float lifeTime_;
+    public GameObject particlePrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        lifeTime_ = 0;
     }
 
     // Update is called once per frame
@@ -17,7 +19,17 @@ public class BatteryBullet : MonoBehaviour
     {
         this.GetComponent<Rigidbody2D>().velocity = new Vector2(speed_, 0.0f);
 
-        Destroy(this.gameObject, 3.0f);
+        lifeTime_ += Time.deltaTime;
+
+        if (lifeTime_ >= 3.0f)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                GameObject batteryDead = Instantiate(particlePrefab, transform.position, Quaternion.identity);
+            }
+            Destroy(this.gameObject);
+        }
+
     }
 
     public void Create(float speed)
