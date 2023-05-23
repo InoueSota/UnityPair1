@@ -249,7 +249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442242466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.18, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -295,7 +295,7 @@ MonoBehaviour:
   player_: {fileID: 442242472}
   camera_: {fileID: 519420032}
   JumpForce: 300
-  dropspeed_: 0.1
+  dropspeed_: 0.05
   grondcheck_: {fileID: 899811961}
   rbody2D: {fileID: 0}
   isHipDropActive: 0
@@ -2692,7 +2692,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 144926287299576226, guid: b97927d39885a364b8d99973e7e6b971, type: 3}
   batteryinstance: {fileID: 6688535314413006161, guid: 097084da282633d4daf51a061188c0d5, type: 3}
   player: {fileID: 442242472}
-  position: {x: 0, y: -9.5, z: 0}
+  position: {x: 5, y: -4.5, z: 0}
 --- !u!4 &896357005
 Transform:
   m_ObjectHideFlags: 0
@@ -2793,6 +2793,7 @@ GameObject:
   - component: {fileID: 1741248747}
   - component: {fileID: 1741248748}
   - component: {fileID: 1741248749}
+  - component: {fileID: 1741248750}
   m_Layer: 0
   m_Name: Bero
   m_TagString: Untagged
@@ -2832,6 +2833,7 @@ MonoBehaviour:
   isHooked: 0
   isHookedcoolTime: 0
   hookTarget: {x: 0, y: 0}
+  StartPosition: {x: 0, y: 0}
   hookPower: {x: 8, y: 8}
   tilemap: {fileID: 584536712}
   muki: 1
@@ -2867,8 +2869,29 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.48}
-  m_Size: {x: 0.81, y: 0.26}
+  m_Size: {x: 0.81, y: 0.38}
   m_Direction: 1
+--- !u!50 &1741248750
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741248745}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1001 &1987411238
 PrefabInstance:
   m_ObjectHideFlags: 0

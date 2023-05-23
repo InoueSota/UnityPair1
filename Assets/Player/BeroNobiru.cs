@@ -14,6 +14,7 @@ public class BeroNobiru : MonoBehaviour
     public int muki_;
     public bool Hit_Bullet;     //ベロが弾に当たったかどうか
     public Vector2 TargetPos;   //当たった時のぽししょん
+    public Vector2 FakePos; //左右によって変わるポジy損
   
 
     void Start()
@@ -39,7 +40,6 @@ public class BeroNobiru : MonoBehaviour
         {
             turnPoint = false;
         }
-        transform.position = new Vector3(this.transform.position.x, this.transform.position.y/*+(heightPos*0.01f)*/, this.transform.position.z);
 
         if (!turnPoint)
         {
@@ -47,10 +47,13 @@ public class BeroNobiru : MonoBehaviour
             if (muki_ == -1)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 45f);
+                transform.position = new Vector3(this.transform.position.x - (heightPos * 0.4f), this.transform.position.y + (heightPos * 0.4f), this.transform.position.z);
+
             }
             else if (muki_ == 1)
             {
                 transform.rotation = Quaternion.Euler(0, 0, -45f);
+                transform.position = new Vector3(this.transform.position.x + (heightPos * 0.4f), this.transform.position.y + (heightPos * 0.4f), this.transform.position.z);
 
             }
             heightPos += BeroMoveSpeed * Time.deltaTime;
@@ -59,6 +62,18 @@ public class BeroNobiru : MonoBehaviour
         {
             transform.localScale = new Vector3(1, heightPos, 1);
             heightPos -= BeroMoveSpeed * Time.deltaTime;
+            if (muki_ == -1)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 45f);
+                transform.position = new Vector3(this.transform.position.x - (heightPos * 0.4f), this.transform.position.y + (heightPos * 0.4f), this.transform.position.z);
+
+            }
+            else if (muki_ == 1)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, -45f);
+                transform.position = new Vector3(this.transform.position.x + (heightPos * 0.4f), this.transform.position.y + (heightPos * 0.4f), this.transform.position.z);
+
+            }
             if (heightPos < 0.0f)
             {
                 Destroy(this.gameObject);
