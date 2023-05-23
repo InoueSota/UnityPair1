@@ -11,7 +11,7 @@ public class ToTitle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            FadeManager.Instance.LoadScene("SampleScene", 1.0f);
+            FadeManager.Instance.LoadScene("Stage1", 1.0f);
         }
     }
 }
