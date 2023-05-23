@@ -4921,7 +4921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_: {fileID: 442242469}
   hookSpeed: 25
-  hookPower: 4.25
+  hookPower: 4.5
   isHooked: 0
   isHookedcoolTime: 0
   hookTarget: {x: 0, y: 0}
