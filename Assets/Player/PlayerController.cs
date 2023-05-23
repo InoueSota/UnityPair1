@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float MoveSpeed;//プレイヤーの動く速さ
     [SerializeField] PlayerController player_;
+    [SerializeField] GameObject hipdropPrefab;
+    [SerializeField] GameObject batteryDeadPrefab;
     [SerializeField] Transform camera_;　//カメラ
     [SerializeField] float JumpForce=300f;    //ジャンプの力
     [SerializeField] float dropspeed_;
@@ -71,6 +73,10 @@ public class PlayerController : MonoBehaviour
                 player_.rbody2D.velocity = Vector3.zero;
                 isGround = true;
                 isHipDropActive = false;
+                for (int i = 0; i < 8; i++)
+                {
+                    GameObject hipdrop = Instantiate(hipdropPrefab, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.identity);
+                }
             }
 
             player_.transform.position = new Vector3(transform.position.x, transform.position.y - dropspeed_);
@@ -104,7 +110,11 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Battery" && isHipDropActive == true)
         {
-            Destroy(battery_.batteryinstance.gameObject);
+            for (int i = 0; i < 8; i++)
+            {
+                GameObject batteryDead = Instantiate(batteryDeadPrefab, collision.transform.position, Quaternion.identity);
+            }
+            Destroy(collision.gameObject);
         }
     }
 
