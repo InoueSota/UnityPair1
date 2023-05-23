@@ -6,11 +6,14 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float MoveSpeed;//プレイヤーの動く速さ
     [SerializeField] PlayerController player_;
+    [SerializeField] GameObject hipdropPrefab;
+    [SerializeField] GameObject batteryDeadPrefab;
     [SerializeField] Transform camera_;　//カメラ
     [SerializeField] float JumpForce=300f;    //ジャンプの力
     [SerializeField] float dropspeed_;
     public groundcheck grondcheck_;
     public Rigidbody2D rbody2D;
+    public Battery battery_;
     //private Collision2D collision2D;
     private bool isGround = false;  //地面判定  
     public bool isHipDropActive = false;
@@ -37,8 +40,8 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-
         player_.transform.Rotate(0, 0, 0);
+
         if (Input.GetKey(KeyCode.A))    //左に移動する処理    
         {
             player_.transform.position = new Vector3(transform.position.x - MoveSpeed, transform.position.y);
@@ -70,6 +73,10 @@ public class PlayerController : MonoBehaviour
                 player_.rbody2D.velocity = Vector3.zero;
                 isGround = true;
                 isHipDropActive = false;
+                for (int i = 0; i < 8; i++)
+                {
+                    GameObject hipdrop = Instantiate(hipdropPrefab, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.identity);
+                }
             }
 
             player_.transform.position = new Vector3(transform.position.x, transform.position.y - dropspeed_);
@@ -97,6 +104,18 @@ public class PlayerController : MonoBehaviour
    public int Getmuki()
     {
         return muki;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Battery" && isHipDropActive == true)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                GameObject batteryDead = Instantiate(batteryDeadPrefab, collision.transform.position, Quaternion.identity);
+            }
+            Destroy(collision.gameObject);
+        }
     }
 
 }

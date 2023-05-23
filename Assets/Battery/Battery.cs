@@ -9,9 +9,11 @@ public class Battery : MonoBehaviour
     public GameObject batteryPrefab;
     public GameObject bulletPrefab;
     public GameObject batteryinstance;
+    public GameObject shotPrefab;
     public PlayerController player;
 
     [SerializeField] Vector3 position;
+    [SerializeField] float speed;
 
     float shotSecond = 0;
 
@@ -36,17 +38,26 @@ public class Battery : MonoBehaviour
         shotSecond += Time.deltaTime;
         if (shotSecond > 3)
         {
-            GameObject bulllet = Instantiate(bulletPrefab, position, Quaternion.identity) as GameObject;
+            GameObject bullet = Instantiate(bulletPrefab, position, Quaternion.identity) as GameObject;
+            BatteryBullet b = bullet.GetComponent<BatteryBullet>();
+            b.Create(speed);
+
+            for (int i = 0; i < 8; i++)
+            {
+                GameObject shotparticle_ = Instantiate(shotPrefab, position, Quaternion.identity);
+                ShotParticle s = shotparticle_.GetComponent<ShotParticle>();
+                if (speed > 0)
+                {
+                    s.Direction(false);
+                }
+                else
+                {
+                    s.Direction(true);
+                }
+            }
 
             shotSecond = 0;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Battery" && player.isHipDropActive == true)
-        {
-            Destroy(batteryinstance.gameObject);
-        }
-    }
 }
