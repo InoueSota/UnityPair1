@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float MoveSpeed;//プレイヤーの動く速さ
     [SerializeField] PlayerController player_;
+    [SerializeField] Goal goal_;
     [SerializeField] GameObject hipdropPrefab;
     [SerializeField] GameObject batteryDeadPrefab;
     [SerializeField] Transform camera_;　//カメラ
@@ -114,6 +115,7 @@ public class PlayerController : MonoBehaviour
             {
                 GameObject batteryDead = Instantiate(batteryDeadPrefab, collision.transform.position, Quaternion.identity);
             }
+            goal_.clearCount++;
             Destroy(collision.gameObject);
         }
     }
