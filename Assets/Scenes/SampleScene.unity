@@ -4920,12 +4920,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_: {fileID: 442242469}
-  hookSpeed: 17.07
+  hookSpeed: 25
+  hookPower: 4.25
   isHooked: 0
   isHookedcoolTime: 0
   hookTarget: {x: 0, y: 0}
   StartPosition: {x: 0, y: 0}
-  hookPower: {x: 8, y: 8}
   tilemap: {fileID: 584536712}
   muki: 1
   BeroPrefab: {fileID: 5369248334748958132, guid: fa45661dde1b24b4b9ec3cca4d59282d, type: 3}

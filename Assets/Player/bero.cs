@@ -11,12 +11,13 @@ public class bero : MonoBehaviour
 {
     public Transform player_;
     [SerializeField] float hookSpeed;    //フックのスピード
+    [SerializeField] float hookPower;    //フック_pawa-
     public bool isHooked = false;  //引っかかっているかどうか
     public bool isHookedcoolTime = false;
     public Vector2 hookTarget; // ターゲットの目標値
     public Vector2 StartPosition; //押したときのポジション
   
-    public Vector2 hookPower= new Vector2 (8,8);
+    //public Vector2 hookPower= new Vector2 (8,8);
     private  new Rigidbody2D rigidbody2D;
     PlayerController player_muki;
     private GameObject Player_;
@@ -43,7 +44,7 @@ public class bero : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K) == true && isHooked == false && isHookedcoolTime == false&&CoolTime==0)  // K_codeがクリックされたら
         {
-            rigidbody2D.velocity = Vector2.zero;
+          //  rigidbody2D.velocity = Vector2.zero;
             Destroy(beroN_);    //あったら削
             //  Vector2 targetPosition = new(player_.transform.position.x+(hookPower.x*muki),player_.transform.position.y+(hookPower.y));
             beroN_ = Instantiate(BeroPrefab);   //ベロ生成
@@ -76,10 +77,10 @@ public class bero : MonoBehaviour
                 Vector2 direction = scriptbero.TargetPos - StartPosition;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
              
-                Vector2 force = Quaternion.Euler(0, 0, angle) * Vector2.right * 0.2f;
-                rigidbody2D.AddForce(new Vector2(0,force.y), ForceMode2D.Force);
+                 force = Quaternion.Euler(0, 0, angle) * Vector2.right * 4.25f;
 
                 }
+                rigidbody2D.AddForce(new Vector2(force.x*0.5f,force.y), ForceMode2D.Force);
             }
             if (isHooked == true && isHookedcoolTime == false)
             {             
@@ -149,7 +150,8 @@ public class bero : MonoBehaviour
             //isHookedcoolTime = false;
             isTargetPos = true;
             Destroy(beroN_);
-            //Vector2 speed = force*10.0f; // 加速の強さを調整する場合は適宜変更してください            
+            //Vector2 speed = force*10.0f; // 加速の強さを調整する場合は適宜変更してください
+           
         }
         else
         {

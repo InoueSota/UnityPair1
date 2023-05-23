@@ -88,6 +88,8 @@ public class BeroNobiru : MonoBehaviour
         {
             Hit_Bullet = true;
             TargetPos= collision.transform.position;
+            turnPoint = true;
+            Destroy(collision.gameObject);
         }
     }
 

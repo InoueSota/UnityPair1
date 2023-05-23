@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5369248334748958132}
   m_LocalRotation: {x: -0, y: -0, z: 0.99999905, w: 0.0014065579}
-  m_LocalPosition: {x: 0.2274, y: 2.1447, z: 0}
+  m_LocalPosition: {x: 0.2274, y: 2.1447, z: 2.07}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnPoint: 0
-  BeroMoveSpeed: 20.07
+  BeroMoveSpeed: 30
   muki_: 0
   Hit_Bullet: 0
   TargetPos: {x: 0, y: 0}
