@@ -76,8 +76,8 @@ public class bero : MonoBehaviour
                 Vector2 direction = scriptbero.TargetPos - StartPosition;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
              
-                Vector2 force = Quaternion.Euler(0, 0, angle) * Vector2.right * 0.1f;
-                rigidbody2D.AddForce(new Vector2(0,force.y), ForceMode2D.Impulse);
+                Vector2 force = Quaternion.Euler(0, 0, angle) * Vector2.right * 0.2f;
+                rigidbody2D.AddForce(new Vector2(0,force.y), ForceMode2D.Force);
 
                 }
             }

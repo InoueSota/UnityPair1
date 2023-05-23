@@ -253,7 +253,7 @@ MonoBehaviour:
   batteryinstance: {fileID: 6688535314413006161, guid: 097084da282633d4daf51a061188c0d5, type: 3}
   shotPrefab: {fileID: 4429753783897848334, guid: 53085081ee1b7a54896ab32d44ee48db, type: 3}
   player: {fileID: 442242472}
-  position: {x: 0, y: -9.5, z: 0}
+  position: {x: 0, y: -4.5, z: 0}
   speed: -5
 --- !u!4 &243333320
 Transform:
@@ -351,7 +351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442242466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.18, y: 0, z: 0}
+  m_LocalPosition: {x: -7.24, y: -8.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4629,10 +4629,8 @@ MonoBehaviour:
   batteryinstance: {fileID: 6688535314413006161, guid: 097084da282633d4daf51a061188c0d5, type: 3}
   shotPrefab: {fileID: 4429753783897848334, guid: 53085081ee1b7a54896ab32d44ee48db, type: 3}
   player: {fileID: 442242472}
-
-  position: {x: 10, y: -4.5, z: 0}
-  speed: -5
-
+  position: {x: 0, y: 0, z: 0}
+  speed: 0
 --- !u!4 &896357005
 Transform:
   m_ObjectHideFlags: 0
