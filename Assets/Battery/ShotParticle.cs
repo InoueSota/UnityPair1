@@ -24,7 +24,7 @@ public class ShotParticle : MonoBehaviour
     {
         if (isLeft)
         {
-            transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y);
+            transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y, -0.01f);
             velocity = new Vector3
             (
                 Random.Range(-3.0f, 0.0f),
@@ -34,7 +34,7 @@ public class ShotParticle : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y);
+            transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y, -0.01f);
             velocity = new Vector3
             (
                 Random.Range( 0.0f, 3.0f),
