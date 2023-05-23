@@ -42,11 +42,4 @@ public class Battery : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Battery" && player.isHipDropActive == true)
-        {
-            Destroy(batteryinstance.gameObject);
-        }
-    }
 }

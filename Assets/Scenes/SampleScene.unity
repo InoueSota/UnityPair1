@@ -298,6 +298,7 @@ MonoBehaviour:
   dropspeed_: 0.1
   grondcheck_: {fileID: 899811961}
   rbody2D: {fileID: 0}
+  battery_: {fileID: 896357004}
   isHipDropActive: 0
   muki: -1
 --- !u!61 &442242473

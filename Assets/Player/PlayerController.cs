@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float dropspeed_;
     public groundcheck grondcheck_;
     public Rigidbody2D rbody2D;
+    public Battery battery_;
     //private Collision2D collision2D;
     private bool isGround = false;  //ínñ îªíË  
     public bool isHipDropActive = false;
@@ -37,8 +38,8 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-
         player_.transform.Rotate(0, 0, 0);
+
         if (Input.GetKey(KeyCode.A))    //ç∂Ç…à⁄ìÆÇ∑ÇÈèàóù    
         {
             player_.transform.position = new Vector3(transform.position.x - MoveSpeed, transform.position.y);
@@ -97,6 +98,14 @@ public class PlayerController : MonoBehaviour
    public int Getmuki()
     {
         return muki;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Battery" && isHipDropActive == true)
+        {
+            Destroy(battery_.batteryinstance.gameObject);
+        }
     }
 
 }
