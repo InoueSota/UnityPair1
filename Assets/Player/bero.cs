@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using static Unity.VisualScripting.Member;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class bero : MonoBehaviour
 {
