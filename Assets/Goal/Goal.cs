@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
@@ -22,5 +25,15 @@ public class Goal : MonoBehaviour
         {
             FadeManager.Instance.LoadScene(scene, 1.0f);
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetScene();
+        }
+    }
+
+    public void ResetScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }

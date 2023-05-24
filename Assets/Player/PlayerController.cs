@@ -19,13 +19,14 @@ public class PlayerController : MonoBehaviour
     private bool isGround = false;  //地面判定  
     public bool isHipDropActive = false;
     public int muki = -1;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         //MoveSpeed = 0.0f;
         rbody2D = GetComponent<Rigidbody2D>();
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -47,11 +48,14 @@ public class PlayerController : MonoBehaviour
         {
             player_.transform.position = new Vector3(transform.position.x - MoveSpeed, transform.position.y);
             muki = -1;
+            spriteRenderer.flipX = true;
+
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))    //右に移動する処理
         {
             player_.transform.position = new Vector3(transform.position.x + MoveSpeed, transform.position.y);
             muki = 1;
+            spriteRenderer.flipX = false;
         }
         //if (Input.GetKey(KeyCode.W))    //上に移動（いらない）
         //{

@@ -42,7 +42,7 @@ public class bero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) == true && isHooked == false && isHookedcoolTime == false&&CoolTime==0)  // K_codeがクリックされたら
+        if (Input.GetKeyDown(KeyCode.K) == true && isHooked == false && isHookedcoolTime == false&&CoolTime==0)  // K_codeがクリックされたら
         {
           //  rigidbody2D.velocity = Vector2.zero;
             Destroy(beroN_);    //あったら削
@@ -102,14 +102,14 @@ public class bero : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.LeftArrow))
             {
                 muki = -1;
                // angle = -45f;
                 force = new Vector2(-1.0f,1.0f);
               
             }
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D)|| Input.GetKey(KeyCode.RightArrow))
             {
                 muki = 1;
                 //angle = +45f;
