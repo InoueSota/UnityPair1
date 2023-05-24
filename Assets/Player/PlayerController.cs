@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         //    player_.transform.position = new Vector3(transform.position.x , transform.position.y - MoveSpeed);
         //}
 
-        if (Input.GetKey(KeyCode.H) && !grondcheck_.IsGround() && !isHipDropActive)
+        if (Input.GetKey(KeyCode.J) && !grondcheck_.IsGround() && !isHipDropActive)
         {
             isHipDropActive = true;
         }

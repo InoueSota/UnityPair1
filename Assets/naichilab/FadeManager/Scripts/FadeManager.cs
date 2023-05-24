@@ -127,7 +127,7 @@ public class FadeManager : MonoBehaviour
 		}
 
 		//シーン切替 .
-		SceneManager.LoadScene (scene);
+		SceneManager.LoadSceneAsync (scene);
 
 		//だんだん明るく .
 		time = 0;
