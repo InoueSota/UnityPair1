@@ -19,7 +19,7 @@ public class Goal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (clearCount == maxClear)
+        if (clearCount >= maxClear)
         {
             FadeManager.Instance.LoadScene(scene, 1.0f);
         }

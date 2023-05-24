@@ -46,14 +46,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.LeftArrow)  )  //¶‚ÉˆÚ“®‚·‚éˆ—    
         {
-            player_.transform.position = new Vector3(transform.position.x - MoveSpeed, transform.position.y);
+            player_.transform.position = new Vector3(transform.position.x - (MoveSpeed * Time.deltaTime), transform.position.y);
             muki = -1;
             spriteRenderer.flipX = true;
 
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))    //‰E‚ÉˆÚ“®‚·‚éˆ—
         {
-            player_.transform.position = new Vector3(transform.position.x + MoveSpeed, transform.position.y);
+            player_.transform.position = new Vector3(transform.position.x + (MoveSpeed * Time.deltaTime), transform.position.y);
             muki = 1;
             spriteRenderer.flipX = false;
         }

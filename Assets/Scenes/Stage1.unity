@@ -915,7 +915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d91e0b86c9457489b8ce059abd23dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 0.01
+  MoveSpeed: 5
   player_: {fileID: 1279838010}
   goal_: {fileID: 480633796}
   hipdropPrefab: {fileID: 3155732225658182397, guid: 81d29c2568a6d3a4ebc584653823b6f9, type: 3}

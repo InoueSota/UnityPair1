@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d91e0b86c9457489b8ce059abd23dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 0.015
+  MoveSpeed: 5
   player_: {fileID: 442242472}
   goal_: {fileID: 1076934050}
   hipdropPrefab: {fileID: 3155732225658182397, guid: 81d29c2568a6d3a4ebc584653823b6f9, type: 3}
@@ -77808,8 +77808,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goalPrefab: {fileID: 4271023949775699515, guid: bddc694f0190e624d92586be55e9dce1, type: 3}
   clearCount: 0
-  maxClear: 4
-  scene: Title
+  maxClear: 5
+  scene: TitleScene
 --- !u!4 &1076934051
 Transform:
   m_ObjectHideFlags: 0
