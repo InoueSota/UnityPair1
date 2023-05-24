@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
       propertyPath: m_LocalPosition.x
@@ -279,57 +279,6 @@ Transform:
   - {fileID: 584536710}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &243333318
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 243333320}
-  - component: {fileID: 243333319}
-  m_Layer: 0
-  m_Name: Battery (6)
-  m_TagString: Battery
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &243333319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243333318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee1b99ce5695ba478dfb5251faf697d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  batteryPrefab: {fileID: 6688535314413006161, guid: 097084da282633d4daf51a061188c0d5, type: 3}
-  bulletPrefab: {fileID: 144926287299576226, guid: b97927d39885a364b8d99973e7e6b971, type: 3}
-  batteryinstance: {fileID: 6688535314413006161, guid: 097084da282633d4daf51a061188c0d5, type: 3}
-  shotPrefab: {fileID: 4429753783897848334, guid: 53085081ee1b7a54896ab32d44ee48db, type: 3}
-  player: {fileID: 442242472}
-  position: {x: 8, y: 23.5, z: 0}
-  speed: -5
---- !u!4 &243333320
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243333318}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &442242466
 GameObject:
@@ -77653,57 +77602,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!1 &694268278
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 694268280}
-  - component: {fileID: 694268279}
-  m_Layer: 0
-  m_Name: Battery (4)
-  m_TagString: Battery
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &694268279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 694268278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee1b99ce5695ba478dfb5251faf697d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  batteryPrefab: {fileID: 6688535314413006161, guid: 097084da282633d4daf51a061188c0d5, type: 3}
-  bulletPrefab: {fileID: 144926287299576226, guid: b97927d39885a364b8d99973e7e6b971, type: 3}
-  batteryinstance: {fileID: 6688535314413006161, guid: 097084da282633d4daf51a061188c0d5, type: 3}
-  shotPrefab: {fileID: 4429753783897848334, guid: 53085081ee1b7a54896ab32d44ee48db, type: 3}
-  player: {fileID: 442242472}
-  position: {x: -10, y: 16.5, z: 0}
-  speed: 5
---- !u!4 &694268280
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 694268278}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &896357003
 GameObject:
   m_ObjectHideFlags: 0
@@ -77925,7 +77823,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1103269002
 GameObject:
@@ -78077,57 +77975,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bero_: {fileID: 1741248745}
   Length: 10
---- !u!1 &1703705420
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1703705422}
-  - component: {fileID: 1703705421}
-  m_Layer: 0
-  m_Name: Battery (5)
-  m_TagString: Battery
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1703705421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703705420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee1b99ce5695ba478dfb5251faf697d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  batteryPrefab: {fileID: 6688535314413006161, guid: 097084da282633d4daf51a061188c0d5, type: 3}
-  bulletPrefab: {fileID: 144926287299576226, guid: b97927d39885a364b8d99973e7e6b971, type: 3}
-  batteryinstance: {fileID: 6688535314413006161, guid: 097084da282633d4daf51a061188c0d5, type: 3}
-  shotPrefab: {fileID: 4429753783897848334, guid: 53085081ee1b7a54896ab32d44ee48db, type: 3}
-  player: {fileID: 442242472}
-  position: {x: 5, y: 19.5, z: 0}
-  speed: -5
---- !u!4 &1703705422
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703705420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1741248745
 GameObject:
   m_ObjectHideFlags: 0
@@ -81701,5 +81548,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
