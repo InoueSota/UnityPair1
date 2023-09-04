@@ -13,7 +13,7 @@ public class BatteryDeadParticle : MonoBehaviour
     void Start()
     {
         // Á–Å‚·‚é‚Ü‚Å‚ÌŠÔ‚Ìİ’è
-        lifeTime = 0.5f;
+        lifeTime = 0.4f;
         // c‚èŠÔ‚ğ‰Šú‰»
         leftLifeTime = lifeTime;
         // Œ»İ‚ÌScale‚ğ‹L˜^
